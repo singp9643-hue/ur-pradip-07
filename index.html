@@ -1,173 +1,195 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Pradip Official</title>
+<title>Pradip | Portfolio</title>
 
 <style>
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:Arial,sans-serif;
+}
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#111;
-color:white;
-text-align:center;
+ background:#000;
+ color:white;
 }
 
-.profile{
-padding:30px 15px;
+header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:25px 8%;
 }
 
-.photo{
-width:180px;
-height:180px;
-border-radius:50%;
-object-fit:cover;
-border:5px solid white;
+.logo{
+ color:#ff3b30;
+ font-size:28px;
+ font-weight:bold;
 }
 
-h1{
-font-size:45px;
+nav a{
+ color:white;
+ text-decoration:none;
+ margin:15px;
 }
 
-.tag{
-font-size:22px;
+.hero{
+ min-height:90vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:60px;
+ padding:40px 8%;
 }
 
-.card{
-background:#222;
-padding:25px;
-border-radius:25px;
-max-width:550px;
-margin:auto;
+.photo img{
+ width:350px;
+ height:350px;
+ object-fit:cover;
+ border-radius:50%;
+ border:5px solid #ff3b30;
+ box-shadow:0 0 50px #ff3b30;
 }
 
-h2{
-color:#ff0080;
+.text h1{
+ font-size:55px;
 }
 
-p{
-font-size:18px;
-line-height:1.7;
+.text h1 span{
+ color:#ff3b30;
+}
+
+.text h2{
+ margin-top:15px;
+ font-size:35px;
+}
+
+.text p{
+ margin-top:20px;
+ color:#ccc;
+ line-height:1.7;
+ max-width:500px;
 }
 
 .btn{
-display:inline-block;
-padding:14px 30px;
-margin:10px;
-background:#ff0080;
-color:white;
-text-decoration:none;
-border-radius:30px;
+ display:inline-block;
+ margin-top:30px;
+ padding:12px 35px;
+ border:2px solid #ff3b30;
+ border-radius:30px;
+ color:white;
+ text-decoration:none;
 }
-
 
 .gallery{
-margin-top:30px;
+ padding:50px 8%;
+ text-align:center;
 }
 
-.gallery img{
-width:140px;
-height:140px;
-object-fit:cover;
-border-radius:15px;
-margin:8px;
-border:3px solid white;
+.gallery h2{
+ color:#ff3b30;
+ font-size:35px;
 }
 
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+ gap:20px;
+ margin-top:30px;
+}
+
+.grid img{
+ width:100%;
+ height:250px;
+ object-fit:cover;
+ border-radius:20px;
+}
 
 footer{
-padding:20px;
-background:#000;
-margin-top:30px;
+ text-align:center;
+ padding:30px;
+ color:#aaa;
 }
 
+@media(max-width:800px){
+.hero{
+ flex-direction:column;
+ text-align:center;
+}
+.photo img{
+ width:260px;
+ height:260px;
+}
+.text h1{
+ font-size:40px;
+}
+}
 </style>
-
 </head>
-
 
 <body>
 
+<header>
+<div class="logo">ur.pradip_07</div>
 
-<div class="profile">
-
-
-<img class="photo" src="myphoto.jpg">
-
-
-<h1>Pradip</h1>
-
-<p class="tag">
-✨ Dream • Create • Inspire ✨
-</p>
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Gallery</a>
+<a href="#">Contact</a>
+</nav>
+</header>
 
 
+<section class="hero">
 
-<div class="card">
+<div class="photo">
+<img src="myphoto.jpg">
+</div>
 
-<h2>About Me</h2>
+<div class="text">
 
+<h1>Hi, I'm <span>Pradip</span></h1>
+
+<h2>Developer & Creator</h2>
 
 <p>
-
-Hello, I am Pradip.
-
-I am from Ranibandh, West Bengal.
-This is my official personal website.
-
-I believe in hard work, creativity and learning new skills.
-
-I love technology, photography, gaming, web development and exploring new ideas.
-
-My dream is to create my own identity and inspire people through my work.
-
-Every day is a new opportunity to learn, grow and become better.
-
-Thank you for visiting my official profile ❤️
-
+Hello, I am Pradip from Ranibandh, West Bengal.
+I love technology, photography, gaming and web development.
+My dream is to create something unique and inspire people.
 </p>
 
-
-<a class="btn" href="https://instagram.com/ur.pradip_07">
-Instagram
-</a>
-
-
-<a class="btn" href="https://wa.me/916362301512">
-WhatsApp
-</a>
-
+<a class="btn" href="#">Contact Me</a>
 
 </div>
 
+</section>
 
 
-<div class="gallery">
+<section class="gallery">
 
-<h2>My Photos</h2>
+<h2>My Gallery</h2>
+
+<div class="grid">
 
 <img src="myphoto.jpg">
 <img src="myphoto1.jpg">
 <img src="myphoto2.jpg">
 <img src="myphoto3.jpg">
 <img src="myphoto4.jpg">
-<img src="myphoto5.jpg">
+<img src="Picsart_25-01-19_08-02-11-114.jpg">
 
 </div>
 
-
-</div>
+</section>
 
 
 <footer>
-© 2026 Pradip Official
+© 2026 Pradip Official | ur.pradip_07
 </footer>
-
 
 </body>
 </html>
-
