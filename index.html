@@ -37,10 +37,21 @@ body{
  align-items:center;
  flex-direction:column;
  z-index:9999;
- animation:hideIntro 1s forwards;
- animation-delay:4s;
+ #intro{
+ animation:hideIntro 0.5s forwards;
+ animation-delay:1s;
+}
+.intro-circle{
+ animation:zoomIn 0.5s ease;
 }
 
+#intro h1{
+ animation:slideUp 0.7s ease;
+}
+
+#intro p{
+ animation:slideUp 0.8s ease;
+}
 
 .intro-circle{
  width:180px;
