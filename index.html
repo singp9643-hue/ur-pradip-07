@@ -18,13 +18,12 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Arial',sans-serif;
+font-family:Arial,sans-serif;
 }
 
 html{
 scroll-behavior:smooth;
 }
-
 
 body{
 background:#050505;
@@ -36,7 +35,6 @@ overflow-x:hidden;
 /* Background Video */
 
 #bg-video{
-
 position:fixed;
 top:0;
 left:0;
@@ -44,12 +42,12 @@ width:100%;
 height:100%;
 object-fit:cover;
 z-index:-3;
-
 }
 
 
-.overlay{
+/* VFX Overlay */
 
+.overlay{
 position:fixed;
 top:0;
 left:0;
@@ -61,11 +59,8 @@ linear-gradient(
 rgba(255,0,60,.35),
 rgba(0,0,0,.85)
 );
-
 z-index:-2;
-
 animation:glow 8s infinite alternate;
-
 }
 
 
@@ -82,57 +77,49 @@ filter:hue-rotate(40deg);
 }
 
 
+
 /* Header */
 
 header{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 8%;
-background:rgba(0,0,0,.4);
+background:rgba(0,0,0,.45);
 backdrop-filter:blur(15px);
-
 }
 
 
 .logo{
-
 font-size:30px;
 font-weight:bold;
 color:#ff003c;
-
 }
 
 
 nav a{
-
 color:white;
 text-decoration:none;
 margin:15px;
 transition:.3s;
-
 }
 
 
 nav a:hover{
-
 color:#ff003c;
-
 }
+
 
 
 /* Hero */
 
 .hero{
-
 min-height:90vh;
 display:flex;
 align-items:center;
 justify-content:center;
 gap:60px;
 padding:40px 8%;
-
 }
 
 
@@ -143,11 +130,12 @@ height:330px;
 border-radius:50%;
 object-fit:cover;
 border:5px solid #ff003c;
+
 box-shadow:
 0 0 30px #ff003c,
 0 0 80px #ff003c;
 
-animation:float 3s infinite;
+animation:float 3s infinite ease-in-out;
 
 }
 
@@ -161,8 +149,10 @@ transform:translateY(-15px);
 }
 
 
+
 .card{
 
+max-width:600px;
 background:rgba(255,255,255,.08);
 padding:35px;
 border-radius:25px;
@@ -173,107 +163,90 @@ border:1px solid rgba(255,255,255,.15);
 
 
 h1{
-
 font-size:55px;
-
 }
 
 
 h1 span{
-
 color:#ff003c;
-
 }
 
+/* Sections */
 
-h2{
-
-margin-top:15px;
-font-size:32px;
-
-}
-
-
-p{
-
-margin-top:20px;
-line-height:1.7;
-color:#ddd;
-
-}
 .section{
-
 padding:80px 8%;
 text-align:center;
-
 }
 
 
 .section h2{
-
 color:#ff003c;
 font-size:40px;
 margin-bottom:40px;
-
 }
 
 
-/* Skills */
+/* Glass Cards */
 
-.skills{
-
+.skills,
+.projects,
+.gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
 }
 
+
+/* Skill Card */
 
 .skill-card{
 
 background:rgba(255,255,255,.08);
-padding:25px;
+padding:30px;
 border-radius:20px;
 border:1px solid rgba(255,255,255,.15);
-transition:.3s;
+transition:.4s;
+font-size:20px;
 
 }
 
 
 .skill-card:hover{
 
-transform:translateY(-10px);
-box-shadow:0 0 25px #ff003c;
+transform:translateY(-10px) scale(1.05);
+box-shadow:
+0 0 25px #ff003c;
 
 }
 
 
 
-/* Projects */
-
-.projects{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-
-}
-
+/* Project Card */
 
 .project-card{
 
 background:rgba(255,255,255,.08);
-padding:25px;
+padding:30px;
 border-radius:20px;
-transition:.3s;
+border:1px solid rgba(255,255,255,.15);
+transition:.4s;
 
 }
 
 
 .project-card:hover{
 
-transform:scale(1.05);
-box-shadow:0 0 30px #ff003c;
+transform:translateY(-10px);
+box-shadow:
+0 0 30px #ff003c;
+
+}
+
+
+.project-card h3{
+
+color:#ff003c;
+font-size:25px;
 
 }
 
@@ -281,22 +254,14 @@ box-shadow:0 0 30px #ff003c;
 
 /* Gallery */
 
-.gallery{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-
-}
-
-
 .gallery img{
 
 width:100%;
-height:220px;
+height:250px;
 object-fit:cover;
 border-radius:20px;
 transition:.4s;
+border:2px solid transparent;
 
 }
 
@@ -304,40 +269,11 @@ transition:.4s;
 .gallery img:hover{
 
 transform:scale(1.08);
+border-color:#ff003c;
+box-shadow:0 0 30px #ff003c;
 
 }
 
-
-
-/* Buttons */
-
-.btn{
-
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:13px 30px;
-border-radius:30px;
-text-decoration:none;
-color:white;
-margin:10px;
-font-weight:bold;
-
-}
-
-
-.whatsapp{
-
-background:#25D366;
-
-}
-
-
-.instagram{
-
-background:linear-gradient(45deg,#feda75,#d62976,#833ab4);
-
-}
 
 
 /* Timeline */
@@ -353,11 +289,71 @@ margin:auto;
 .timeline div{
 
 background:rgba(255,255,255,.08);
-padding:20px;
-margin:15px;
-border-radius:15px;
+padding:25px;
+margin:20px;
+border-radius:20px;
+border-left:4px solid #ff003c;
+backdrop-filter:blur(10px);
+transition:.3s;
 
 }
+
+
+.timeline div:hover{
+
+transform:translateX(10px);
+box-shadow:0 0 25px #ff003c;
+
+}
+
+
+
+/* Buttons */
+
+.btn{
+
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:14px 35px;
+margin:15px;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+
+}
+
+
+.btn:hover{
+
+transform:scale(1.1);
+
+}
+
+
+.whatsapp{
+
+background:#25D366;
+box-shadow:0 0 20px #25D366;
+
+}
+
+
+.instagram{
+
+background:linear-gradient(
+45deg,
+#feda75,
+#d62976,
+#833ab4
+);
+
+box-shadow:0 0 20px #d62976;
+
+}
+
 
 
 /* Footer */
@@ -370,27 +366,21 @@ color:#aaa;
 
 }
 
-
-/* Mobile */
-
-@media(max-width:800px){
-
-.hero{
-
-flex-direction:column;
-text-align:center;
-
+h2{
+margin-top:15px;
+font-size:32px;
 }
 
-h1{
 
-font-size:40px;
-
+p{
+margin-top:20px;
+line-height:1.7;
+color:#ddd;
 }
-
-.profile{</style>
+</style>
 
 </head>
+
 
 <body>
 
@@ -406,6 +396,8 @@ font-size:40px;
 <div class="overlay"></div>
 
 
+
+<!-- Header -->
 
 <header>
 
@@ -430,12 +422,13 @@ Pradip
 
 
 
+
 <!-- Hero -->
 
 <section class="hero" id="home">
 
 
-<img class="profile" src="myphoto.jpg">
+<img src="myphoto.jpg" class="profile">
 
 
 <div class="card">
@@ -458,8 +451,10 @@ I love exploring new technology and creating digital experiences.
 </p>
 
 
-<a class="btn whatsapp"
-href="https://wa.me/6362301512">
+
+<a class="btn whatsapp" 
+href="https://wa.me/6362301512"
+target="_blank">
 
 <i class="fa-brands fa-whatsapp"></i>
 WhatsApp
@@ -467,8 +462,10 @@ WhatsApp
 </a>
 
 
+
 <a class="btn instagram"
-href="https://instagram.com/ur.pradip_07">
+href="https://instagram.com/ur.pradip_07"
+target="_blank">
 
 <i class="fa-brands fa-instagram"></i>
 Instagram
@@ -489,23 +486,30 @@ Instagram
 
 <section class="section" id="about">
 
+
 <h2>About Me</h2>
 
+
 <div class="timeline">
+
 
 <div>
 🚀 Started learning technology and development.
 </div>
 
+
 <div>
 💻 Building websites, apps and creative projects.
 </div>
 
+
 <div>
-🌟 Future goal: Create something unique.
+🌟 My goal is to create unique digital experiences.
 </div>
 
+
 </div>
+
 
 </section>
 
@@ -516,6 +520,7 @@ Instagram
 <!-- Skills -->
 
 <section class="section" id="skills">
+
 
 <h2>My Skills</h2>
 
@@ -555,6 +560,7 @@ Gaming & Technology
 
 </div>
 
+
 </section>
 
 
@@ -574,7 +580,7 @@ Gaming & Technology
 
 <div class="project-card">
 
-<h3>Web Projects</h3>
+<h3>Web Development</h3>
 
 <p>
 Modern responsive websites.
@@ -589,7 +595,7 @@ Modern responsive websites.
 <h3>App Development</h3>
 
 <p>
-Android applications and ideas.
+Android apps and creative ideas.
 </p>
 
 </div>
@@ -598,10 +604,10 @@ Android applications and ideas.
 
 <div class="project-card">
 
-<h3>Creative Projects</h3>
+<h3>Creator Projects</h3>
 
 <p>
-Photography and digital creations.
+Photography, gaming and digital work.
 </p>
 
 </div>
@@ -627,11 +633,13 @@ Photography and digital creations.
 
 <div class="gallery">
 
+
 <img src="photo1.jpg">
 
 <img src="photo2.jpg">
 
 <img src="photo3.jpg">
+
 
 </div>
 
@@ -651,20 +659,21 @@ Photography and digital creations.
 
 
 <a class="btn whatsapp"
-href="https://wa.me/6362301512">
+href="https://wa.me/6362301512"
+target="_blank">
 
 <i class="fa-brands fa-whatsapp"></i>
-
 WhatsApp
 
 </a>
 
 
+
 <a class="btn instagram"
-href="https://instagram.com/ur.pradip_07">
+href="https://instagram.com/ur.pradip_07"
+target="_blank">
 
 <i class="fa-brands fa-instagram"></i>
-
 Instagram
 
 </a>
@@ -684,14 +693,36 @@ Instagram
 
 
 
-</body>
 
-</html>
+
+<!-- Mobile Fix -->
+
+<style>
+
+@media(max-width:800px){
+
+.hero{
+
+flex-direction:column;
+text-align:center;
+
+}
+
+
+.profile{
 
 width:250px;
 height:250px;
 
 }
+
+
+h1{
+
+font-size:40px;
+
+}
+
 
 nav{
 
@@ -699,4 +730,19 @@ display:none;
 
 }
 
-  }
+
+.card{
+
+padding:25px;
+
+}
+
+}
+
+</style>
+
+
+
+</body>
+
+</html>
