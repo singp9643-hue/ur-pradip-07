@@ -4,6 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pradip | Portfolio</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 *{
  margin:0;
@@ -15,6 +17,45 @@
 body{
  background:#000;
  color:white;
+}
+
+/* 10 second intro */
+#loader{
+ position:fixed;
+ width:100%;
+ height:100vh;
+ background:#000;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+ z-index:9999;
+ animation:hideLoader 1s forwards;
+ animation-delay:10s;
+}
+
+#loader h1{
+ font-size:60px;
+ color:#ff3b30;
+ animation:pulse 2s infinite;
+}
+
+#loader p{
+ margin-top:15px;
+ font-size:20px;
+}
+
+@keyframes pulse{
+ 50%{
+  transform:scale(1.2);
+ }
+}
+
+@keyframes hideLoader{
+ to{
+  opacity:0;
+  visibility:hidden;
+ }
 }
 
 header{
@@ -74,15 +115,49 @@ nav a{
  max-width:500px;
 }
 
-.btn{
- display:inline-block;
+/* Contact Button */
+.contact{
  margin-top:30px;
- padding:12px 35px;
- border:2px solid #ff3b30;
+}
+
+.contact-btn{
+ display:inline-flex;
+ align-items:center;
+ gap:10px;
+ margin:10px;
+ padding:12px 30px;
  border-radius:30px;
  color:white;
  text-decoration:none;
+ font-size:18px;
+ font-weight:bold;
+ animation:float 2s infinite ease-in-out;
+ transition:.3s;
 }
+
+.whatsapp{
+ background:#25D366;
+}
+
+.instagram{
+ background:linear-gradient(45deg,#feda75,#d62976,#962fbf,#4f5bd5);
+}
+
+.contact-btn i{
+ font-size:22px;
+}
+
+.contact-btn:hover{
+ transform:scale(1.1);
+ box-shadow:0 0 25px white;
+}
+
+@keyframes float{
+ 50%{
+  transform:translateY(-8px);
+ }
+}
+
 
 .gallery{
  padding:50px 8%;
@@ -119,10 +194,12 @@ footer{
  flex-direction:column;
  text-align:center;
 }
+
 .photo img{
  width:260px;
  height:260px;
 }
+
 .text h1{
  font-size:40px;
 }
@@ -131,6 +208,12 @@ footer{
 </head>
 
 <body>
+
+<div id="loader">
+<h1>Pradip</h1>
+<p>Welcome To My Portfolio</p>
+</div>
+
 
 <header>
 <div class="logo">ur.pradip_07</div>
@@ -150,6 +233,7 @@ footer{
 <img src="myphoto.jpg">
 </div>
 
+
 <div class="text">
 
 <h1>Hi, I'm <span>Pradip</span></h1>
@@ -157,28 +241,35 @@ footer{
 <h2>Developer & Creator</h2>
 
 <p>
- from Ranibandh, West Bengal.
+from Ranibandh, West Bengal.
 I love technology, photography, gaming and web development.
 My dream is to create something unique and inspire people.
 </p>
 
 
-    
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <div class="contact">
-    <h2>Contact Me</h2>
+<div class="contact">
 
-    <a class="contact-btn whatsapp" href="https://wa.me/6362301512" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-    </a>
+<h2>Contact Me</h2>
 
-    <a class="contact-btn instagram" href="https://instagram.com/ur.pradip_07" target="_blank">
-        <i class="fa-brands fa-instagram"></i> Instagram
-    </a>
-  
+<a class="contact-btn whatsapp" href="https://wa.me/6362301512" target="_blank">
+<i class="fa-brands fa-whatsapp"></i> WhatsApp
+</a>
+
+<a class="contact-btn instagram" href="https://instagram.com/ur.pradip_07" target="_blank">
+<i class="fa-brands fa-instagram"></i> Instagram
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
 <footer>
 © 2026 Pradip Official | ur.pradip_07
 </footer>
 
 
-
+</body>
+</html>
