@@ -11,219 +11,175 @@
 <style>
 
 *{
- margin:0;
- padding:0;
- box-sizing:border-box;
- font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
- background:#000;
- color:white;
+background:#050505;
+color:white;
+overflow-x:hidden;
 }
 
 
-/* 4 Second Intro Animation */
+/* 1 Second Intro */
 
 #intro{
- position:fixed;
- top:0;
- left:0;
- width:100%;
- height:100vh;
- background:#000;
- display:flex;
- justify-content:center;
- align-items:center;
- flex-direction:column;
- z-index:9999;
- #intro{
- animation:hideIntro 0.5s forwards;
- animation-delay:1s;
+position:fixed;
+width:100%;
+height:100vh;
+background:#000;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:9999;
+animation:closeIntro .5s forwards;
+animation-delay:1s;
 }
-.intro-circle{
- animation:zoomIn 0.5s ease;
+
+#intro img{
+width:170px;
+height:170px;
+border-radius:50%;
+border:5px solid #ff003c;
+box-shadow:0 0 50px #ff003c;
+animation:zoom .8s;
 }
 
 #intro h1{
- animation:slideUp 0.7s ease;
+margin-top:20px;
+font-size:45px;
+animation:up .8s;
 }
 
-#intro p{
- animation:slideUp 0.8s ease;
-}
-
-.intro-circle{
- width:180px;
- height:180px;
- border-radius:50%;
- overflow:hidden;
- border:5px solid #ff3b30;
- box-shadow:
- 0 0 20px #ff3b30,
- 0 0 60px #ff3b30;
- animation:zoomIn 1.5s ease;
+#intro span{
+color:#ff003c;
 }
 
 
-.intro-circle img{
- width:100%;
- height:100%;
- object-fit:cover;
-}
-
-
-#intro h1{
- margin-top:25px;
- font-size:45px;
- animation:slideUp 2s ease;
-}
-
-
-#intro h1 span{
- color:#ff3b30;
-}
-
-
-#intro p{
- margin-top:10px;
- color:#ccc;
- font-size:22px;
- animation:slideUp 2.5s ease;
-}
-
-
-
-@keyframes zoomIn{
-
+@keyframes zoom{
 from{
- transform:scale(0);
- opacity:0;
+transform:scale(0);
 }
-
 to{
- transform:scale(1);
- opacity:1;
+transform:scale(1);
+}
 }
 
-}
-
-
-@keyframes slideUp{
-
+@keyframes up{
 from{
- transform:translateY(50px);
- opacity:0;
+opacity:0;
+transform:translateY(40px);
 }
-
 to{
- transform:translateY(0);
- opacity:1;
+opacity:1;
+transform:translateY(0);
+}
 }
 
-}
-
-
-@keyframes hideIntro{
-
+@keyframes closeIntro{
 to{
- opacity:0;
- visibility:hidden;
+opacity:0;
+visibility:hidden;
+}
 }
 
+
+
+/* Background Glow */
+
+body:before{
+content:"";
+position:fixed;
+width:300px;
+height:300px;
+background:#ff003c;
+filter:blur(150px);
+top:20%;
+left:10%;
+z-index:-1;
 }
 
 
 /* Header */
 
 header{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 8%;
-
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
 }
 
 
 .logo{
-
-color:#ff3b30;
 font-size:28px;
 font-weight:bold;
-
+color:#ff003c;
 }
 
 
 nav a{
-
 color:white;
 text-decoration:none;
-margin:15px;
-
+margin:12px;
 }
+
 
 
 /* Hero */
 
 .hero{
-
 min-height:90vh;
 display:flex;
 align-items:center;
 justify-content:center;
 gap:60px;
 padding:40px 8%;
-
 }
 
 
 .photo img{
-
-width:350px;
-height:350px;
+width:330px;
+height:330px;
 object-fit:cover;
 border-radius:50%;
-border:5px solid #ff3b30;
-box-shadow:0 0 50px #ff3b30;
-
+border:5px solid #ff003c;
+box-shadow:0 0 40px #ff003c;
 }
 
 
+
 .text h1{
-
 font-size:55px;
-
 }
 
 
 .text h1 span{
-
-color:#ff3b30;
-
+color:#ff003c;
 }
 
 
 .text h2{
-
 margin-top:15px;
 font-size:35px;
-
 }
 
 
 .text p{
-
 margin-top:20px;
 color:#ccc;
-line-height:1.7;
 max-width:500px;
-
-} 
-/* Contact Button */
+line-height:1.7;
+}
+ /* Contact */
 
 .contact{
- margin-top:30px;
+margin-top:30px;
 }
 
 
@@ -232,29 +188,36 @@ max-width:500px;
 display:inline-flex;
 align-items:center;
 gap:10px;
+padding:13px 30px;
 margin:10px;
-padding:12px 30px;
 border-radius:30px;
 color:white;
 text-decoration:none;
 font-size:18px;
 font-weight:bold;
-animation:float 2s infinite ease-in-out;
 transition:.3s;
+animation:float 2s infinite;
 
 }
 
 
 .whatsapp{
-
 background:#25D366;
-
+box-shadow:0 0 20px #25D366;
 }
 
 
 .instagram{
 
-background:linear-gradient(45deg,#feda75,#d62976,#962fbf,#4f5bd5);
+background:linear-gradient(45deg,#ffdc80,#e1306c,#833ab4);
+box-shadow:0 0 20px #e1306c;
+
+}
+
+
+.contact-btn:hover{
+
+transform:scale(1.12);
 
 }
 
@@ -266,19 +229,26 @@ font-size:22px;
 }
 
 
-.contact-btn:hover{
-
-transform:scale(1.1);
-box-shadow:0 0 25px white;
-
-}
-
 
 @keyframes float{
 
 50%{
 transform:translateY(-8px);
 }
+
+}
+
+
+
+/* Glass Card */
+
+.text{
+
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:25px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.1);
 
 }
 
@@ -322,7 +292,15 @@ font-size:40px;
 
 }
 
+
+nav{
+
+display:none;
+
 }
+
+}
+
 
 </style>
 
@@ -332,20 +310,16 @@ font-size:40px;
 <body>
 
 
-<!-- 4 Second Intro -->
+
+<!-- Intro -->
 
 <div id="intro">
 
-<div class="intro-circle">
-
 <img src="myphoto.jpg">
 
-</div>
-
-
-<h1>Hi, I'm <span>Pradip</span></h1>
-
-<p>Developer & Creator</p>
+<h1>
+Hi, I'm <span>Pradip</span>
+</h1>
 
 </div>
 
@@ -366,7 +340,6 @@ ur.pradip_07
 <a href="#">Contact</a>
 
 </nav>
-
 
 </header>
 
@@ -398,7 +371,7 @@ Developer & Creator
 
 
 <p>
-from Ranibandh, West Bengal.
+From Ranibandh, West Bengal.
 I love technology, photography, gaming and web development.
 My dream is to create something unique and inspire people.
 </p>
@@ -414,7 +387,9 @@ Contact Me
 
 
 
-<a class="contact-btn whatsapp" href="https://wa.me/6362301512" target="_blank">
+<a class="contact-btn whatsapp" 
+href="https://wa.me/6362301512"
+target="_blank">
 
 <i class="fa-brands fa-whatsapp"></i>
 WhatsApp
@@ -423,13 +398,14 @@ WhatsApp
 
 
 
-<a class="contact-btn instagram" href="https://instagram.com/ur.pradip_07" target="_blank">
+<a class="contact-btn instagram"
+href="https://instagram.com/ur.pradip_07"
+target="_blank">
 
 <i class="fa-brands fa-instagram"></i>
 Instagram
 
 </a>
-
 
 
 </div>
