@@ -2,12 +2,12 @@
 <html>
 <head>
 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pradip | Portfolio</title>
+<title>Pradip | Official Portfolio</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 
 <style>
 
@@ -16,7 +16,9 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
+scroll-behavior:smooth;
 }
+
 
 body{
 background:#000;
@@ -25,9 +27,47 @@ overflow-x:hidden;
 }
 
 
+/* Loading */
+
+#loader{
+
+position:fixed;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+font-size:35px;
+color:#ff003c;
+font-weight:bold;
+
+animation:hide 3s forwards;
+
+}
+
+
+@keyframes hide{
+
+0%,80%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+visibility:hidden;
+}
+
+}
+
+
+
 /* Background Video */
 
+
 #bg-video{
+
 position:fixed;
 top:0;
 left:0;
@@ -35,34 +75,37 @@ width:100%;
 height:100%;
 object-fit:cover;
 z-index:-3;
+
 }
 
 
-/* VFX Overlay */
+
+/* Neon VFX */
+
 
 .vfx{
+
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
 background:
-radial-gradient(circle,transparent 20%,#000 85%),
-linear-gradient(120deg,rgba(255,0,60,.35),rgba(0,0,0,.8));
+radial-gradient(circle,transparent 20%,black 90%),
+linear-gradient(120deg,rgba(255,0,60,.4),rgba(0,0,0,.8));
 
 z-index:-2;
-animation:vfxMove 8s infinite alternate;
+animation:vfx 8s infinite alternate;
+
 }
 
 
-@keyframes vfxMove{
+@keyframes vfx{
 
 from{
 transform:scale(1);
 }
 
 to{
-transform:scale(1.15);
+transform:scale(1.2);
 }
 
 }
@@ -71,14 +114,18 @@ transform:scale(1.15);
 
 /* Header */
 
+
 header{
 
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 8%;
-background:rgba(0,0,0,.4);
-backdrop-filter:blur(10px);
+background:rgba(0,0,0,.5);
+backdrop-filter:blur(15px);
+position:sticky;
+top:0;
+z-index:100;
 
 }
 
@@ -86,8 +133,8 @@ backdrop-filter:blur(10px);
 .logo{
 
 font-size:28px;
-font-weight:bold;
 color:#ff003c;
+font-weight:bold;
 
 }
 
@@ -97,11 +144,21 @@ nav a{
 color:white;
 text-decoration:none;
 margin:15px;
+font-size:18px;
 
 }
 
 
-/* Hero */
+nav a:hover{
+
+color:#ff003c;
+
+}
+
+
+
+/* Home */
+
 
 .hero{
 
@@ -123,11 +180,25 @@ height:330px;
 object-fit:cover;
 border-radius:50%;
 border:5px solid #ff003c;
+
 box-shadow:
 0 0 20px #ff003c,
 0 0 60px #ff003c;
 
+animation:float 4s infinite;
+
 }
+
+
+
+@keyframes float{
+
+50%{
+transform:translateY(-15px);
+}
+
+}
+
 
 
 
@@ -136,28 +207,28 @@ box-shadow:
 background:rgba(255,255,255,.08);
 padding:35px;
 border-radius:25px;
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.15);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.2);
 
 }
 
 
 
-.text h1{
+h1{
 
 font-size:55px;
 
 }
 
 
-.text h1 span{
+h1 span{
 
 color:#ff003c;
 
 }
 
 
-.text h2{
+h2{
 
 margin-top:15px;
 font-size:35px;
@@ -165,108 +236,84 @@ font-size:35px;
 }
 
 
-.text p{
+
+p{
 
 margin-top:20px;
-color:#ddd;
 line-height:1.7;
-max-width:500px;
-
-.contact{
-margin-top:30px;
-}
-
-
-.contact-btn{
-
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:13px 30px;
-margin:10px;
-border-radius:30px;
-color:white;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;
-transition:.3s;
-
-}
-
-
-.whatsapp{
-
-background:#25D366;
-box-shadow:0 0 20px #25D366;
-
-}
-
-
-.instagram{
-
-background:linear-gradient(45deg,#feda75,#d62976,#962fbf,#4f5bd5);
-box-shadow:0 0 20px #d62976;
-
-}
-
-
-.contact-btn i{
-
-font-size:22px;
-
-}
-
-
-.contact-btn:hover{
-
-transform:scale(1.1);
+color:#ddd;
 
 }
 
 
 
-footer{
+/* Typing */
+
+
+.typing{
+
+color:#ff003c;
+font-size:25px;
+margin-top:15px;
+
+}
+
+
+
+/* About */
+
+
+section{
+
+padding:80px 8%;
+
+}
+
+
+.title{
 
 text-align:center;
-padding:30px;
-color:#aaa;
-
-}
-
-
-
-@media(max-width:800px){
-
-.hero{
-
-flex-direction:column;
-text-align:center;
-
-}
-
-
-.photo img{
-
-width:260px;
-height:260px;
-
-}
-
-
-.text h1{
-
 font-size:40px;
+color:#ff003c;
+margin-bottom:40px;
 
 }
 
 
-nav{
 
-display:none;
+.about-box{
+
+background:rgba(255,255,255,.08);
+padding:30px;
+border-radius:20px;
+text-align:center;
 
 }
 
+
+
+/* Skills */
+
+
+.skills{
+
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+
 }
+
+
+.skill{
+
+padding:20px 30px;
+background:#111;
+border-radius:20px;
+box-shadow:0 0 20px #ff003c;
+
+}
+
 
 
 </style>
@@ -277,9 +324,12 @@ display:none;
 <body>
 
 
-<!-- Background Video -->
+<div id="loader">
+Pradip Official
+</div>
 
-<video autoplay muted loop id="bg-video">
+
+<video autoplay muted loop playsinline id="bg-video">
 
 <source src="background.mp4" type="video/mp4">
 
@@ -287,7 +337,6 @@ display:none;
 
 
 <div class="vfx"></div>
-
 
 
 <header>
@@ -299,10 +348,9 @@ ur.pradip_07
 
 <nav>
 
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Gallery</a>
-<a href="#">Contact</a>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
@@ -310,9 +358,7 @@ ur.pradip_07
 </header>
 
 
-
-
-<section class="hero">
+<section class="hero" id="home">
 
 
 <div class="photo">
@@ -322,10 +368,7 @@ ur.pradip_07
 </div>
 
 
-
 <div class="card">
-
-<div class="text">
 
 
 <h1>
@@ -338,20 +381,78 @@ Developer & Creator
 </h2>
 
 
+<div class="typing">
+Web Developer | App Developer
+</div>
+
+
 <p>
-From Ranibandh, West Bengal.
-I love technology, photography, gaming and web development.
-My dream is to create something unique and inspire people.
+Technology lover, photographer and creator.
+I build websites, apps and creative projects.
 </p>
 
 
+</div>
 
-<div class="contact">
+
+</section>
+<!-- Projects -->
+
+<section id="projects">
+
+<h2 class="title">
+My Projects
+</h2>
 
 
-<h2>
+<div class="skills">
+
+
+<div class="skill">
+🌐 Web Design
+</div>
+
+
+<div class="skill">
+📱 Android Apps
+</div>
+
+
+<div class="skill">
+🎮 Game Development
+</div>
+
+
+<div class="skill">
+📸 Photography
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- Contact -->
+
+
+<section id="contact">
+
+
+<h2 class="title">
 Contact Me
 </h2>
+
+
+
+<div class="about-box">
+
+
+<p>
+Let's work together and create something amazing.
+</p>
 
 
 
@@ -380,12 +481,27 @@ Instagram
 </div>
 
 
-</div>
-
-</div>
-
-
 </section>
+
+
+
+<!-- Floating Social -->
+
+
+<div class="float-social">
+
+
+<a href="https://wa.me/6362301512">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+
+<a href="https://instagram.com/ur.pradip_07">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+
+</div>
 
 
 
@@ -398,7 +514,205 @@ Instagram
 
 
 
+
+
+<style>
+
+
+.contact-btn{
+
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:15px 30px;
+margin:15px;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+
+}
+
+
+
+.whatsapp{
+
+background:#25D366;
+box-shadow:0 0 20px #25D366;
+
+}
+
+
+
+.instagram{
+
+background:linear-gradient(45deg,#feda75,#d62976,#962fbf);
+
+}
+
+
+
+
+.float-social{
+
+position:fixed;
+right:20px;
+bottom:30px;
+display:flex;
+flex-direction:column;
+gap:15px;
+
+}
+
+
+
+.float-social a{
+
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#ff003c;
+color:white;
+font-size:25px;
+box-shadow:0 0 20px #ff003c;
+
+}
+
+
+
+footer{
+
+text-align:center;
+padding:30px;
+color:#aaa;
+
+}
+
+
+
+
+
+@media(max-width:800px){
+
+
+.hero{
+
+flex-direction:column;
+text-align:center;
+
+}
+
+
+.photo img{
+
+width:250px;
+height:250px;
+
+}
+
+
+h1{
+
+font-size:40px;
+
+}
+
+
+nav{
+
+display:none;
+
+}
+
+
+}
+
+
+
+</style>
+
+
+
+<script>
+
+
+// Typing Effect
+
+
+let text=[
+"Web Developer",
+"App Developer",
+"Photographer",
+"Creator"
+];
+
+
+let index=0;
+let char=0;
+
+
+let typing=document.querySelector(".typing");
+
+
+function type(){
+
+if(char < text[index].length){
+
+typing.innerHTML += text[index].charAt(char);
+char++;
+
+setTimeout(type,100);
+
+}
+
+else{
+
+setTimeout(()=>{
+
+typing.innerHTML="";
+char=0;
+index=(index+1)%text.length;
+type();
+
+},1500);
+
+}
+
+}
+
+
+type();
+
+
+
+
+// Visitor Counter
+
+
+let visit=localStorage.getItem("visit");
+
+if(!visit){
+
+visit=1;
+
+}else{
+
+visit++;
+
+}
+
+
+localStorage.setItem("visit",visit);
+
+
+
+</script>
+
+
 </body>
 
 </html>
-}
