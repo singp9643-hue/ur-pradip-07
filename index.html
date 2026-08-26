@@ -8,6 +8,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+
 <style>
 
 *{
@@ -18,165 +19,158 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#050505;
+background:#000;
 color:white;
 overflow-x:hidden;
 }
 
 
-/* 1 Second Intro */
+/* Background Video */
 
-#intro{
+#bg-video{
 position:fixed;
+top:0;
+left:0;
 width:100%;
-height:100vh;
-background:#000;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-z-index:9999;
-animation:closeIntro .5s forwards;
-animation-delay:1s;
-}
-
-#intro img{
-width:170px;
-height:170px;
-border-radius:50%;
-border:5px solid #ff003c;
-box-shadow:0 0 50px #ff003c;
-animation:zoom .8s;
-}
-
-#intro h1{
-margin-top:20px;
-font-size:45px;
-animation:up .8s;
-}
-
-#intro span{
-color:#ff003c;
+height:100%;
+object-fit:cover;
+z-index:-3;
 }
 
 
-@keyframes zoom{
+/* VFX Overlay */
+
+.vfx{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle,transparent 20%,#000 85%),
+linear-gradient(120deg,rgba(255,0,60,.35),rgba(0,0,0,.8));
+
+z-index:-2;
+animation:vfxMove 8s infinite alternate;
+}
+
+
+@keyframes vfxMove{
+
 from{
-transform:scale(0);
-}
-to{
 transform:scale(1);
 }
-}
 
-@keyframes up{
-from{
-opacity:0;
-transform:translateY(40px);
-}
 to{
-opacity:1;
-transform:translateY(0);
-}
+transform:scale(1.15);
 }
 
-@keyframes closeIntro{
-to{
-opacity:0;
-visibility:hidden;
-}
 }
 
-
-
-/* Background Glow */
-
-body:before{
-content:"";
-position:fixed;
-width:300px;
-height:300px;
-background:#ff003c;
-filter:blur(150px);
-top:20%;
-left:10%;
-z-index:-1;
-}
 
 
 /* Header */
 
 header{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 8%;
-background:rgba(255,255,255,.05);
+background:rgba(0,0,0,.4);
 backdrop-filter:blur(10px);
+
 }
 
 
 .logo{
+
 font-size:28px;
 font-weight:bold;
 color:#ff003c;
+
 }
 
 
 nav a{
+
 color:white;
 text-decoration:none;
-margin:12px;
-}
+margin:15px;
 
+}
 
 
 /* Hero */
 
 .hero{
+
 min-height:90vh;
 display:flex;
 align-items:center;
 justify-content:center;
 gap:60px;
 padding:40px 8%;
+
 }
 
 
+
 .photo img{
+
 width:330px;
 height:330px;
 object-fit:cover;
 border-radius:50%;
 border:5px solid #ff003c;
-box-shadow:0 0 40px #ff003c;
+box-shadow:
+0 0 20px #ff003c,
+0 0 60px #ff003c;
+
+}
+
+
+
+.card{
+
+background:rgba(255,255,255,.08);
+padding:35px;
+border-radius:25px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+
 }
 
 
 
 .text h1{
+
 font-size:55px;
+
 }
 
 
 .text h1 span{
+
 color:#ff003c;
+
 }
 
 
 .text h2{
+
 margin-top:15px;
 font-size:35px;
+
 }
 
 
 .text p{
+
 margin-top:20px;
-color:#ccc;
-max-width:500px;
+color:#ddd;
 line-height:1.7;
-}
- /* Contact */
+max-width:500px;
 
 .contact{
 margin-top:30px;
@@ -196,28 +190,22 @@ text-decoration:none;
 font-size:18px;
 font-weight:bold;
 transition:.3s;
-animation:float 2s infinite;
 
 }
 
 
 .whatsapp{
+
 background:#25D366;
 box-shadow:0 0 20px #25D366;
+
 }
 
 
 .instagram{
 
-background:linear-gradient(45deg,#ffdc80,#e1306c,#833ab4);
-box-shadow:0 0 20px #e1306c;
-
-}
-
-
-.contact-btn:hover{
-
-transform:scale(1.12);
+background:linear-gradient(45deg,#feda75,#d62976,#962fbf,#4f5bd5);
+box-shadow:0 0 20px #d62976;
 
 }
 
@@ -229,32 +217,13 @@ font-size:22px;
 }
 
 
+.contact-btn:hover{
 
-@keyframes float{
-
-50%{
-transform:translateY(-8px);
-}
+transform:scale(1.1);
 
 }
 
 
-
-/* Glass Card */
-
-.text{
-
-background:rgba(255,255,255,.05);
-padding:30px;
-border-radius:25px;
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,.1);
-
-}
-
-
-
-/* Footer */
 
 footer{
 
@@ -265,8 +234,6 @@ color:#aaa;
 }
 
 
-
-/* Mobile */
 
 @media(max-width:800px){
 
@@ -310,18 +277,16 @@ display:none;
 <body>
 
 
+<!-- Background Video -->
 
-<!-- Intro -->
+<video autoplay muted loop id="bg-video">
 
-<div id="intro">
+<source src="background.mp4" type="video/mp4">
 
-<img src="myphoto.jpg">
+</video>
 
-<h1>
-Hi, I'm <span>Pradip</span>
-</h1>
 
-</div>
+<div class="vfx"></div>
 
 
 
@@ -341,6 +306,7 @@ ur.pradip_07
 
 </nav>
 
+
 </header>
 
 
@@ -356,6 +322,8 @@ ur.pradip_07
 </div>
 
 
+
+<div class="card">
 
 <div class="text">
 
@@ -387,7 +355,7 @@ Contact Me
 
 
 
-<a class="contact-btn whatsapp" 
+<a class="contact-btn whatsapp"
 href="https://wa.me/6362301512"
 target="_blank">
 
@@ -408,8 +376,11 @@ Instagram
 </a>
 
 
+
 </div>
 
+
+</div>
 
 </div>
 
@@ -430,3 +401,4 @@ Instagram
 </body>
 
 </html>
+}
