@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pradip Portfolio</title>
+<style>
+body{margin:0;background:#050505;color:white;font-family:Arial;text-align:center}
+header{padding:40px}
+h1{color:#ff004f}
+span{color:#ff004f}
+.profile{width:180px;height:180px;border-radius:50%;border:4px solid #ff004f;box-shadow:0 0 25px red;object-fit:cover}
+section{padding:30px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+.gallery img{width:100%;height:250px;object-fit:cover;border-radius:15px;border:2px solid #ff004f}
+button{background:#ff004f;color:white;border:0;padding:12px 25px;border-radius:20px}
+</style>
+</head>
+<body>
+<header>
+<img class="profile" src="profile.jpg">
+<h1>Hi, I'm Pradip</h1>
+<h2>I'm a <span id="typing"></span></h2>
+<p>From Ranibandh, WB</p>
+</header>
+
+<section>
+<h2>About Me</h2>
+<p>I'm Pradip from Ranibandh, WB. A dreamer, creator, and explorer passionate about learning, creativity, and bringing ideas to life. 🚀</p>
+</section>
+
+<section>
+<h2>My Gallery</h2>
+<div class="gallery">
+<img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg">
+<img src="img4.jpg"><img src="img5.jpg">
+</div>
+</section>
+
+<script>
+let words=["Developer","Creator","Explorer"];
+let i=0,j=0,del=false;
+function type(){
+let t=words[i];
+document.getElementById("typing").innerHTML=del?t.substring(0,j--):t.substring(0,j++);
+if(!del&&j==t.length+1){del=true;setTimeout(type,800);return}
+if(del&&j==0){del=false;i=(i+1)%words.length}
+setTimeout(type,120);
+}
+type();
+</script>
+</body>
+</html>
